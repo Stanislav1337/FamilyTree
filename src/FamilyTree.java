@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 public class FamilyTree {
     List<Human> humanList;
+
+    List<Human> menList;
     public FamilyTree(List<Human> humanList){
         this.humanList = humanList;
     }
@@ -11,16 +13,18 @@ public class FamilyTree {
     }
     public List<Human> SearhChild(Human human1){
         List<Human> childrenList = new ArrayList<>();
-        for (Human a : humanList
+        for (Human man : humanList
              ) {
-            if (a.getMother() == human1 || a.getFather() == human1){
+            if (man.getMother() == human1 || man.getFather() == human1){
 
-                childrenList.add(a);
+                childrenList.add(man);
             }
 
         }
             return childrenList;
     }
+
+
     @Override
     public String toString() {
         return "FamilyTree{" +
