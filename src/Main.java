@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
     public static void main(String[] args) {
         Human human1 = new Human( "Михаил", "Попущенный", Sex.male, "11.09.2001");
         Human human2 = new Human("Светлана", "Опущенная", Sex.female, "03.09.1972");

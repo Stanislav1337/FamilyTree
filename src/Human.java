@@ -6,7 +6,6 @@ public class Human {
     String lastName;
     Sex sex;
     String birthday;
-
     public Human(Human mother, Human father,  String name, String lastName, Sex sex, String birthday) {
 
         this.mother = mother;

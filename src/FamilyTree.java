@@ -2,7 +2,6 @@
 import java.util.ArrayList;
 import java.util.List;
 public class FamilyTree {
-
     List<Human> humanList;
     List<Human> menList;
     public FamilyTree(List<Human> humanList){
