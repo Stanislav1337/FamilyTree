@@ -1,26 +1,29 @@
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class FamilyTree {
+public class FamilyTree implements Serializable {
     List<Human> humanList;
-    List<Human> menList;
-    public FamilyTree(List<Human> humanList){
+
+    public FamilyTree(List<Human> humanList) {
         this.humanList = humanList;
     }
-    public FamilyTree(){
+
+    public FamilyTree() {
         this.humanList = new ArrayList<>();
     }
-    public List<Human> SearhChild(Human human1){
+
+    public List<Human> SearhChild(Human human1) {
         List<Human> childrenList = new ArrayList<>();
         for (Human man : humanList
-             ) {
-            if (man.getMother() == human1 || man.getFather() == human1){
+        ) {
+            if (man.getMother() == human1 || man.getFather() == human1) {
 
                 childrenList.add(man);
             }
 
         }
-            return childrenList;
+        return childrenList;
     }
 
 
@@ -31,4 +34,10 @@ public class FamilyTree {
                 '}';
     }
 
+
+    public void add(Human parent1) {
+        humanList.add(parent1);
+
+    }
 }
+
