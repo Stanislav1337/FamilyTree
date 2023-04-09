@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class Main {
     public static void main(String[] args) {
          DataRepository data = new DataRepository();
@@ -21,8 +19,15 @@ public class Main {
         FamilyTree family1;
         data.save(family, "family");
         family1 = data.load("family");
+//        System.out.println(family1);
+//        System.out.println(family);
+
+
+        family1.getHumanList().sort(new ComparatorByName());
         System.out.println(family1);
-        System.out.println(family);
+
+        family1.getHumanList().sort(new ComparatorByBirtday());
+        System.out.println(family1);
 
     }
 

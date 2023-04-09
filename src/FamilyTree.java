@@ -1,9 +1,9 @@
-
+import java.util.Iterator;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class FamilyTree implements Serializable {
-    List<Human> humanList;
+public class FamilyTree implements Serializable, Iterable<Human> {
+    private List<Human> humanList;
 
     public FamilyTree(List<Human> humanList) {
         this.humanList = humanList;
@@ -24,8 +24,15 @@ public class FamilyTree implements Serializable {
 
         }
         return childrenList;
+
+    }
+    public List<Human> getHumanList() {
+        return humanList;
     }
 
+    public void setHumanList(List<Human> humanList) {
+        this.humanList = humanList;
+    }
 
     @Override
     public String toString() {
@@ -39,5 +46,12 @@ public class FamilyTree implements Serializable {
         humanList.add(parent1);
 
     }
+
+    @Override
+    public Iterator iterator() {
+        return new FamilyIterator(humanList);
+    }
+
 }
+
 

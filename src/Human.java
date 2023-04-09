@@ -105,7 +105,7 @@ public class Human implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", sex=" + sex +
                 ", birthday='" + birthday + '\'' +
-                '}';
+                "}\n";
 
     }
 
