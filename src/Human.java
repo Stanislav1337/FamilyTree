@@ -1,10 +1,9 @@
+import java.time.LocalDate;
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-
 
 public class Human implements Serializable {
    private Human mother;
@@ -14,7 +13,8 @@ public class Human implements Serializable {
    private String lastName;
    private Sex sex;
    private String birthday;
-    public Human(Human mother, Human father,  String name, String lastName, Sex sex, String birthday) {
+
+   public Human(Human mother, Human father,  String name, String lastName, Sex sex, String birthday) {
 
         this.mother = mother;
         this.father = father;
@@ -23,13 +23,17 @@ public class Human implements Serializable {
         this.lastName = lastName;
         this.sex = sex;
         this.birthday = birthday;
-    }
+        mother.addChild(this);
+        father.addChild(this);
+
+   }
     public Human(String name, String lastName, Sex sex, String birthday) {
 
         this.name = name;
         this.lastName = lastName;
         this.sex = sex;
         this.birthday = birthday;
+        children = new ArrayList<>();
 
     }
 
@@ -39,7 +43,9 @@ public class Human implements Serializable {
         children = new ArrayList<>();
     }
 
-
+    public void addChild(Human child){
+        children.add(child);
+    }
 
     public Human getMother() {
         return mother;
@@ -105,7 +111,7 @@ public class Human implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", sex=" + sex +
                 ", birthday='" + birthday + '\'' +
-                '}';
+                "}\n";
 
     }
 

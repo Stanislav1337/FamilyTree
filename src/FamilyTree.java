@@ -1,29 +1,20 @@
-
+import java.util.Iterator;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class FamilyTree implements Serializable {
-    List<Human> humanList;
-
-    public FamilyTree(List<Human> humanList) {
+public class FamilyTree<T extends Human> implements Serializable , Iterable<T>{
+    private List<T> humanList;
+    public FamilyTree(List<T> humanList) {
         this.humanList = humanList;
     }
-
     public FamilyTree() {
         this.humanList = new ArrayList<>();
     }
-
-    public List<Human> SearhChild(Human human1) {
-        List<Human> childrenList = new ArrayList<>();
-        for (Human man : humanList
-        ) {
-            if (man.getMother() == human1 || man.getFather() == human1) {
-
-                childrenList.add(man);
-            }
-
-        }
-        return childrenList;
+    public List<T> getHumanList() {
+        return humanList;
+    }
+    public void setHumanList(List<T> humanList) {
+        this.humanList = humanList;
     }
 
 
@@ -31,13 +22,27 @@ public class FamilyTree implements Serializable {
     public String toString() {
         return "FamilyTree{" +
                 "humanList=" + humanList +
-                '}';
+                "}\n";
     }
 
 
-    public void add(Human parent1) {
-        humanList.add(parent1);
 
+    public void add(T human) {
+        humanList.add(human);
+
+    }
+    public void removeHuman(T human) {
+        if (human.getMother() != null){
+            human.getMother().getChildren().remove(human);
+        }
+        if (human.getFather() != null) {
+            human.getFather().getChildren().remove(human);
+        }
+        humanList.remove(human);
+    }
+    @Override
+    public Iterator<T> iterator() {
+        return new IteratorFamilyTree(humanList);
     }
 }
 
