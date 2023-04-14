@@ -1,20 +1,22 @@
-import java.time.LocalDate;
+package Humans;
+
+import Creatures.Creature;
+import Genders.Sex;
+import Presenter.Presenter;
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
-public class Human implements Serializable {
-   private Human mother;
-   private Human father;
-   private List<Human> children;
-   private String name;
-   private String lastName;
-   private Sex sex;
-   private String birthday;
+public class Human implements Serializable, Creature {
+    private Human mother;
+    private Human father;
+    private List<Human> children;
+    private String name;
+    private String lastName;
+    private Sex sex;
+    private String birthday;
 
-   public Human(Human mother, Human father,  String name, String lastName, Sex sex, String birthday) {
+    public Human(Human mother, Human father, String name, String lastName, Sex sex, String birthday) {
 
         this.mother = mother;
         this.father = father;
@@ -26,7 +28,7 @@ public class Human implements Serializable {
         mother.addChild(this);
         father.addChild(this);
 
-   }
+    }
     public Human(String name, String lastName, Sex sex, String birthday) {
 
         this.name = name;
@@ -71,37 +73,17 @@ public class Human implements Serializable {
         return sex;
     }
 
+    @Override
+    public void addChildren(Creature human) {
+
+    }
+
     public String getBirthday() {
         return birthday;
     }
 
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
 
-    public void setFather(Human father) {
-        this.father = father;
-    }
 
-    public void setChildren(List<Human> children) {
-        this.children = children;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
 
     @Override
@@ -117,10 +99,5 @@ public class Human implements Serializable {
 
 
 }
-
-enum Sex{
-    male, female
-}
-
 
 

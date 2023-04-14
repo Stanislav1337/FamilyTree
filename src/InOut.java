@@ -1,3 +1,4 @@
+import FamilyTrees.FamilyTree;
 
 public interface InOut {
     void save(FamilyTree f, String s);

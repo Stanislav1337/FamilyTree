@@ -1,3 +1,5 @@
+import FamilyTrees.FamilyTree;
+
 import java.io.*;
 public class DataRepository  implements InOut {
     public void save(FamilyTree family, String str) {
