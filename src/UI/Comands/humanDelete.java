@@ -3,11 +3,11 @@ package UI.Comands;
 import UI.Console;
 import Humans.Human;
 
-public class HumanDelete implements Options {
+public class humanDelete implements Options {
     public Console console;
     public Human human;
 
-    public HumanDelete(Console console) {
+    public humanDelete(Console console) {
         this.console = console;
     }
     @Override
@@ -17,8 +17,7 @@ public class HumanDelete implements Options {
 
     @Override
     public void execute() {
-
-        System.out.println("Удаляю...");
+        getConsole().humanDelete();
     }
     public Console getConsole() {
         return console;

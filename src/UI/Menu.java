@@ -1,11 +1,9 @@
 package UI;
 
-import UI.Comands.HumanAdd;
-import UI.Comands.HumanDelete;
-import UI.Comands.Exit;
-import UI.Comands.Options;
+import UI.Comands.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Menu {
     private List<Options> commands;
@@ -14,9 +12,13 @@ public class Menu {
     public Menu(Console console) {
         this.console = console;
         commands = new ArrayList<>();
-        commands.add(new HumanAdd(console));
-        commands.add(new HumanDelete(console));
+        commands.add(new humanAdd(console));
+        commands.add(new humanDelete(console));
         commands.add(new Exit(console));
+        commands.add(new showList(console));
+        commands.add(new humanSearch(console));
+        commands.add(new LoadList(console));
+        commands.add(new SaveList(console));
     }
 
     void execute(int num){

@@ -1,10 +1,10 @@
 package Creatures;
 import Genders.Sex;
-
-import java.time.LocalDate;
 import java.util.List;
 
 public interface Creature<E> {
+
+    int getId();
     String  getName();
 
     String getLastName();
@@ -13,11 +13,11 @@ public interface Creature<E> {
 
     abstract Creature getFather();
 
+    List<E> getChildrens();
 
 
-    default Sex getSex() {
-        return null;
-    }
+
+    Sex getSex();
 
     void addChildren(Creature human);
 

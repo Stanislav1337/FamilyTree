@@ -1,27 +1,18 @@
 package UI.Comands;
 
+import Services.Service;
 import UI.Console;
 
 
 
-public  class Comand implements Options{
+public  abstract class Comand implements Options{
     private Console console;
-
+    private Service service;
     public Comand(Console console) {
         this.console = console;
     }
 
     public Console getConsole() {
         return console;
-    }
-
-    @Override
-    public String description() {
-        return null;
-    }
-
-    @Override
-    public void execute() {
-
     }
 }
